@@ -4,12 +4,16 @@ var app = express()
 
 var counter = 1
 app.get('/', function (req,res) {
-  res.send('<p>Hello World!</p>')
+  var response = ''
+  response += '<p>Hello World!</p>'
+  response += '<p>You are the <em>'+counter+'th</em> viewer.</p>'
+  
+  res.send(response)
 
-  res.send('<p>You are the <em>%sth</em> viewer.</p>')
+  counter++
 })
 
-var server = app.listen(80, function() {
+var server = app.listen(8080, function() {
   var host = server.address().address
   var port = server.address().port
 
